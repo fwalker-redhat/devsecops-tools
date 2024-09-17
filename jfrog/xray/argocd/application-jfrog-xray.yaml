@@ -1,0 +1,27 @@
+﻿apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: jfrog-xray
+spec:
+  destination:
+    namespace: jfrog-xray-operator
+    server: 'https://kubernetes.default.svc'
+  project: devsecops
+  source:
+    chart: xray
+    helm:
+      parameters:
+        - name: xray.jfrogUrl
+          value: CHANGETHIS
+        - name: rabbitmq.migration.enabled
+          value: 'false'
+        - name: rabbitmq.rabbitmqUpgradeReady
+          value: 'true'
+        - name: router.serviceRegistry.insecure
+          value: 'true'
+        - name: xray.joinKey
+          value: CHANGETHIS
+        - name: xray.masterKey
+          value: CHANGETHIS
+    repoURL: 'https://charts.jfrog.io'
+    targetRevision: 103.104.11
