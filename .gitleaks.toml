@@ -1,0 +1,7 @@
+[allowlist]
+  description = "Global Allowlist"
+
+  paths = [
+    '''sonarqube\/sonarqube-dce\/ci\/cirrus-values.yaml$''',
+    '''jfrog\/xray\/argocd\/application-jfrog-xray.yaml$''',
+  ]
